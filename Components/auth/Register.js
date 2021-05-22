@@ -11,11 +11,11 @@ export class Register extends Component {
             name: ''
         }
         
-        this.onSignup = this.onSignup.bind(this);
+        this.onSignUp = this.onSignUp.bind(this);
     }
 
-    onSignup() {
-        
+    onSignUp() {
+
     }
     
     render() {
