@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 
+import { View, Text } from 'react-native'
+
 import * as firebase from 'firebase';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -30,8 +32,36 @@ export class App extends Component {
       loaded: false,
     }
   }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (!user) {
+        this.setState({
+          loggedIn: false,
+          loaded: true
+        })
+      } else {
+        this.setState({
+          loggedIn: true,
+          loaded: true
+        })
+      }
+    })
+  }
     
   render() {
+    const { loggedIn, loaded } = this.state
+
+    if (!loaded) {
+      return (
+        <View>
+          <Text style={{ flex: 1, justifyContent: 'center' }}>
+            Loading
+          </Text>
+        </View>
+      )
+    }
+
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Landing">
