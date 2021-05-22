@@ -27,7 +27,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Landing">
         <Stack.Screen name="Landing" component={Landing} options={{ headerShown: false}}/>
-        <Stack.Screen name="Register" component={Register} options={{ headerShown: false}}/>
+        <Stack.Screen name="Register" component={Register}/>
       </Stack.Navigator>
     </NavigationContainer>
 
