@@ -23,8 +23,6 @@ if (firebase.apps.length === 0) {
 
 const Stack = createStackNavigator();
 
-import React, { Component } from 'react'
-
 export class App extends Component {
   constructor(props){
     super(props);
